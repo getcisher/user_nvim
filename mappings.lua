@@ -22,8 +22,8 @@ return {
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
-    ["hjk"] = { ":w!<cr>", desc = "Save File" },    -- change description but the same command
-    ["hk"] = { "<esc>A<esc>", desc = "Save File" }, -- change description but the same command
+    ["hjk"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
+    ["hk"] = { "<esc>A", desc = "End Append" },  -- change description but the same command
   },
   t = {
     -- setting a mapping to false will disable it

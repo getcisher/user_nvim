@@ -1,13 +1,3 @@
--- TODO: TODO
--- NOTE: NOTE
--- FIX: FIX
--- BUG: BUG
--- HACK: HACK
--- WARNING: WARN
--- WARN: test don
--- TEST: Testing
--- PERF: FC
---
 return {
   -- You can also add new plugins here as well:
   {
