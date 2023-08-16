@@ -81,5 +81,5 @@ return {
     -- Set up Copilot keybindings
     local copilot_options = { silent = true, expr = true, script = true }
     vim.api.nvim_set_keymap("i", "<C-cr>", "copilot#Accept(<Tab>)", copilot_options)
-  end,
+  end
 }

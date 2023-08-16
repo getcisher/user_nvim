@@ -1,6 +1,30 @@
--- # TODO test
 return {
   -- You can also add new plugins here as well:
+  {'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+    }
+  },
+  {
+    "epwalsh/obsidian.nvim",
+    lazy = true,
+    event = { "BufReadPre ~/Desktop/jouney/**.md" },
+    -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
+    -- event = { "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md" },
+    dependencies = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+
+      -- see below for full list of optional dependencies 👇
+    },
+    opts = {
+      dir = "~/Desktop/jouney",  -- no need to call 'vim.fn.expand' here
+    },
+  },
   { "github/copilot.vim" },
   {
     "zbirenbaum/copilot.lua",
