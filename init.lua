@@ -61,6 +61,7 @@ return {
       },
     },
   },
+
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
@@ -77,5 +78,8 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    -- Set up Copilot keybindings
+    local copilot_options = { silent = true, expr = true, script = true }
+    vim.api.nvim_set_keymap("i", "<C-cr>", "copilot#Accept(<Tab>)", copilot_options)
   end,
 }
