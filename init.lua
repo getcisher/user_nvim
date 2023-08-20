@@ -25,6 +25,18 @@ return {
     underline = true,
   },
   lsp = {
+    config = {
+      unocss = {
+        filetypes = { "vue", "pug" },
+        handlers = {
+          ["textDocument/documentHighlight"] = function() end,
+        }
+      },
+      -- emmet_ls = function(opts)
+      --   opts.filetypes = require("astronvim.utils").list_insert_unique(opts.filetypes, "vue")
+      --   return opts
+      -- end,
+    },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save

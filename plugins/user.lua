@@ -9,6 +9,9 @@ return {
     opts = {
     }
   },
+  { 'jbyuki/nabla.nvim' },
+  { "lukas-reineke/indent-blankline.nvim" },
+  -- { 'yaegassy/coc-pug' },
   {
     "epwalsh/obsidian.nvim",
     lazy = true,
