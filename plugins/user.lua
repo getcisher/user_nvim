@@ -12,6 +12,7 @@ return {
   { "jbyuki/nabla.nvim" },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   { "yaegassy/coc-pug" },
+  { "JuliaEditorSupport/julia-vim" },
   {
     "epwalsh/obsidian.nvim",
     lazy = true,
