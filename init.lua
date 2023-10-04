@@ -1,16 +1,16 @@
 return {
   -- Configure AstroNvim updates
   updater = {
-    remote = "origin",     -- remote to use
-    channel = "stable",    -- "stable" or "nightly"
-    version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "nightly",    -- branch name (NIGHTLY ONLY)
-    commit = nil,          -- commit hash (NIGHTLY ONLY)
-    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
-    skip_prompts = false,  -- skip prompts about breaking changes
+    remote = "origin", -- remote to use
+    channel = "stable", -- "stable" or "nightly"
+    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "nightly", -- branch name (NIGHTLY ONLY)
+    commit = nil, -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false, -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
-    auto_quit = false,     -- automatically quit the current session after a successful update
-    remotes = {            -- easily add new remotes to track
+    auto_quit = false, -- automatically quit the current session after a successful update
+    remotes = { -- easily add new remotes to track
       --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
       --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
@@ -25,13 +25,43 @@ return {
     underline = true,
   },
   lsp = {
+    -- enable servers that you already have installed without mason
+    servers = {
+      -- "bqnlsp",
+    },
+    -- ["server-settings"] = {
+    --   bqnlsp = {
+    --     single_file_support = false,
+    --     filetypes = { 'bqn' },
+    --   }
+    -- },
+    plugins = {
+      -- init = {
+      --   {
+      --     "https://git.sr.ht/~detegr/nvim-bqn",
+      --     after = "nvim-lsp-intaller", -- make sure to load after mason-lspconfig
+      --     config = function()
+      --       require("nvim-bqn").setup {
+      --         server = astronvim.lsp.server_settings "bqnlsp",
+      --       }
+      --     end,
+      --   },
+      -- },
+    },
     config = {
       unocss = {
         filetypes = { "vue", "pug" },
         handlers = {
           ["textDocument/documentHighlight"] = function() end,
-        }
+        },
       },
+      -- return {
+      --   cmd = { "bqnlsp" },
+      --   cmd_env = {},
+      --   filetypes = { "bqn" },
+      --   root_dir = require("lspconfig.util").find_git_ancestor,
+      --   single_file_support = false,
+      -- }
       -- emmet_ls = function(opts)
       --   opts.filetypes = require("astronvim.utils").list_insert_unique(opts.filetypes, "vue")
       --   return opts
@@ -41,7 +71,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true,     -- enable or disable format on save globally
+        enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -57,10 +87,6 @@ return {
       -- filter = function(client) -- fully override the default formatting function
       --   return true
       -- end
-    },
-    -- enable servers that you already have installed without mason
-    servers = {
-      -- "pyright"
     },
   },
   -- Configure require("lazy").setup() options
@@ -92,6 +118,6 @@ return {
     -- }
     -- Set up Copilot keybindings
     local copilot_options = { silent = true, expr = true, script = true }
-    vim.api.nvim_set_keymap("i", "<C-cr>", "copilot#Accept(<Tab>)", copilot_options)
-  end
+    -- vim.api.nvim_set_keymap("i", "<C-cr>", "copilot#Accept(<Tab>)", copilot_options)
+  end,
 }

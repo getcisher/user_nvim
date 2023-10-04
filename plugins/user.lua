@@ -1,17 +1,17 @@
 return {
   -- You can also add new plugins here as well:
-  {'romgrk/barbar.nvim',
+  {
+    "romgrk/barbar.nvim",
     dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+      "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
     init = function() vim.g.barbar_auto_setup = false end,
-    opts = {
-    }
+    opts = {},
   },
-  { 'jbyuki/nabla.nvim' },
-  { "lukas-reineke/indent-blankline.nvim" },
-  -- { 'yaegassy/coc-pug' },
+  { "jbyuki/nabla.nvim" },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  { "yaegassy/coc-pug" },
   {
     "epwalsh/obsidian.nvim",
     lazy = true,
@@ -25,36 +25,36 @@ return {
       -- see below for full list of optional dependencies 👇
     },
     opts = {
-      dir = "~/Desktop/jouney",  -- no need to call 'vim.fn.expand' here
+      dir = "~/Desktop/jouney", -- no need to call 'vim.fn.expand' here
     },
   },
-  { "github/copilot.vim" },
-  {
-    "zbirenbaum/copilot.lua",
-    event = "BufRead",
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup()
-      end, 100)
-    end,
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    after = "copilot.lua",
-    config = function()
-      require("copilot_cmp").setup()
-    end,
-  },
-  {
-  "hrsh7th/nvim-cmp",
-  dependencies = {
-    "zbirenbaum/copilot-cmp",
-    name = "copilot_cmp",
-    dependencies = { "zbirenbaum/copilot.lua", opts = {} },
-    opts = {},
-  },
-  opts = function(_, opts) table.insert(opts.sources, { name = "copilot" }) end,
-  },
+  -- { "github/copilot.vim" },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   event = "BufRead",
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup()
+  --     end, 100)
+  --   end,
+  -- },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = "copilot.lua",
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end,
+  -- },
+  -- {
+  -- "hrsh7th/nvim-cmp",
+  --   dependencies = {
+  --     "zbirenbaum/copilot-cmp",
+  --     name = "copilot_cmp",
+  --     dependencies = { "zbirenbaum/copilot.lua", opts = {} },
+  --     opts = {},
+  --   },
+  --   opts = function(_, opts) table.insert(opts.sources, { name = "copilot" }) end,
+  -- },
   { "nvim-lua/plenary.nvim" },
   {
     "folke/todo-comments.nvim",
@@ -81,16 +81,14 @@ return {
     end,
     cmd = { "TodoQuickFix" },
     keys = {
-      { "<leader>T", "<cmd>TodoTelescope keywords=TODO,FIX<cr>" }
-    }
+      { "<leader>T", "<cmd>TodoTelescope keywords=TODO,FIX<cr>" },
+    },
   },
   -- "andweeb/presence.nvim",
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
-    config = function()
-      require("lsp_signature").setup()
-    end,
+    config = function() require("lsp_signature").setup() end,
   },
   --
 }
