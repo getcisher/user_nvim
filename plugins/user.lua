@@ -9,6 +9,7 @@ return {
     init = function() vim.g.barbar_auto_setup = false end,
     opts = {},
   },
+  { "getcisher/BQN" },
   { "jbyuki/nabla.nvim" },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   { "yaegassy/coc-pug" },
@@ -57,7 +58,7 @@ return {
   --   opts = function(_, opts) table.insert(opts.sources, { name = "copilot" }) end,
   -- },
   { "nvim-lua/plenary.nvim" },
-  -- { "https://git.sr.ht/~detegr/nvim-bqn" },
+  { "https://git.sr.ht/~detegr/nvim-bqn" },
   -- { "mlochbaum/BQN", dir = "editors/vim" },
   {
     "folke/todo-comments.nvim",

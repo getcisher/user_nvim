@@ -29,7 +29,7 @@ return {
   lsp = {
     -- enable servers that you already have installed without mason
     servers = {
-      -- "bqnlsp",
+      "bqnlsp",
     },
     plugins = {
       -- init = {
@@ -38,6 +38,10 @@ return {
       --     after = "nvim-lsp-intaller", -- make sure to load after mason-lspconfig
       --     config = function()
       --       require("nvim-bqn").setup {
+      --         -- vim.lsp.start({
+      --         --   cmd = { "bqnlsp" },
+      --         --   root_dir = vim.fn.getcwd(),
+      --         -- });
       --         server = astronvim.lsp.server_settings "bqnlsp",
       --       }
       --     end,
@@ -51,19 +55,18 @@ return {
           ["textDocument/documentHighlight"] = function() end,
         },
       },
-      -- bqnlsp = function ()
-      --   vim.lsp.start({
-      --     cmd = {"bqnlsp"},
-      --     root_dir = vim.fn.getcwd(),
-      --   });
-      --   return {
-      --     cmd = { "bqnlsp" },
-      --     cmd_env = {},
-      --     filetypes = { "bqn" },
-      --     root_dir = require("lspconfig.util").find_git_ancestor,
-      --     single_file_support = false,
-      --   }
-      -- end
+      bqnlsp = function ()
+        vim.lsp.start({
+          cmd = {"bqnlsp"},
+        });
+        return {
+          cmd = { "bqnlsp" },
+          cmd_env = {},
+          filetypes = { "bqn" },
+          -- root_dir = require("lspconfig.util").find_git_ancestor,
+          single_file_support = false,
+        }
+      end
       -- emmet_ls = function(opts)
       --   opts.filetypes = require("astronvim.utils").list_insert_unique(opts.filetypes, "vue")
       --   return opts
