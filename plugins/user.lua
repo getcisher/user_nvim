@@ -56,6 +56,8 @@ return {
   --   opts = function(_, opts) table.insert(opts.sources, { name = "copilot" }) end,
   -- },
   { "nvim-lua/plenary.nvim" },
+  -- { "https://git.sr.ht/~detegr/nvim-bqn" },
+  -- { "mlochbaum/BQN", dir = "editors/vim" },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },

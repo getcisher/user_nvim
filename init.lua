@@ -1,3 +1,5 @@
+
+
 return {
   -- Configure AstroNvim updates
   updater = {
@@ -29,12 +31,6 @@ return {
     servers = {
       -- "bqnlsp",
     },
-    -- ["server-settings"] = {
-    --   bqnlsp = {
-    --     single_file_support = false,
-    --     filetypes = { 'bqn' },
-    --   }
-    -- },
     plugins = {
       -- init = {
       --   {
@@ -55,13 +51,19 @@ return {
           ["textDocument/documentHighlight"] = function() end,
         },
       },
-      -- return {
-      --   cmd = { "bqnlsp" },
-      --   cmd_env = {},
-      --   filetypes = { "bqn" },
-      --   root_dir = require("lspconfig.util").find_git_ancestor,
-      --   single_file_support = false,
-      -- }
+      -- bqnlsp = function ()
+      --   vim.lsp.start({
+      --     cmd = {"bqnlsp"},
+      --     root_dir = vim.fn.getcwd(),
+      --   });
+      --   return {
+      --     cmd = { "bqnlsp" },
+      --     cmd_env = {},
+      --     filetypes = { "bqn" },
+      --     root_dir = require("lspconfig.util").find_git_ancestor,
+      --     single_file_support = false,
+      --   }
+      -- end
       -- emmet_ls = function(opts)
       --   opts.filetypes = require("astronvim.utils").list_insert_unique(opts.filetypes, "vue")
       --   return opts
@@ -72,9 +74,9 @@ return {
       -- control auto formatting on save
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
-        allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
-        },
+        -- allow_filetypes = { -- enable format on save for specified filetypes only
+        --   -- "go",
+        -- },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
         },
