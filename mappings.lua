@@ -21,12 +21,17 @@ return {
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
+    [";;"] = { "<esc>A;<esc>", desc="Shortcut ;" },
     -- quick save
     ["hjk"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
     ["hk"] = { "<esc>A", desc = "End Append" },  -- change description but the same command
   },
+  i = {
+    [";;"] = { "<esc>A;<esc>", desc="Shortcut ;" },
+  },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+    -- [";;"] = { "<esc>A;", desc="Shortcut ;" },
   },
 }
