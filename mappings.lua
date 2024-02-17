@@ -24,6 +24,11 @@ return {
     -- quick save
     ["hjk"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
     ["hk"] = { "<esc>A", desc = "End Append" },  -- change description but the same command
+    [";;"] = { "<esc>A;<esc>", desc="Append ;" },
+  },
+  i = {
+    ["hk"] = { "<esc>A", desc = "End Append" },  -- change description but the same command
+    [";;"] = { "<esc>A;<esc>", desc="Append ;" },
   },
   t = {
     -- setting a mapping to false will disable it

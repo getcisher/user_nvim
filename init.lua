@@ -29,44 +29,53 @@ return {
   lsp = {
     -- enable servers that you already have installed without mason
     servers = {
-      "bqnlsp",
+      -- "bqnlsp",
     },
     plugins = {
-      -- init = {
-      --   {
-      --     "https://git.sr.ht/~detegr/nvim-bqn",
-      --     after = "nvim-lsp-intaller", -- make sure to load after mason-lspconfig
-      --     config = function()
-      --       require("nvim-bqn").setup {
-      --         -- vim.lsp.start({
-      --         --   cmd = { "bqnlsp" },
-      --         --   root_dir = vim.fn.getcwd(),
-      --         -- });
-      --         server = astronvim.lsp.server_settings "bqnlsp",
-      --       }
-      --     end,
-      --   },
+      -- { -- override nvim-cmp plugin
+      -- "hrsh7th/nvim-cmp",
+      -- -- override the options table that is used in the `require("cmp").setup()` call
+      -- opts = function(_, opts)
+      --   -- opts parameter is the default options table
+      --   -- the function is lazy loaded so cmp is able to be required
+      --   local cmp = require "cmp"
+      --   -- modify the sources part of the options table
+      --   opts.sources = cmp.config.sources {
+      --     { name = "nvim_lsp", priority = 1000, trigger_characters = { '-' } },
+      --     { name = "luasnip", priority = 750 },
+      --     { name = "buffer", priority = 500 },
+      --     { name = "path", priority = 250 },
+      --   }
+      --   -- return the new table to be used
+      --   return opts
+      -- end,
       -- },
     },
     config = {
       unocss = {
-        filetypes = { "vue", "pug" },
+        filetypes = { "pug" },
+        single_file_support = false,
+        cmd = { "unocss-language-server", "--stdio" },
+        -- root_dir = function()
+        --   return require("lspconfig.util").root_pattern('unocss.config.js', 'unocss.config.ts', 'uno.config.js', 'uno.config.ts')
+        -- end,
         handlers = {
           ["textDocument/documentHighlight"] = function() end,
         },
       },
-      bqnlsp = function ()
-        vim.lsp.start({
-          cmd = {"bqnlsp"},
-        });
-        return {
-          cmd = { "bqnlsp" },
-          cmd_env = {},
-          filetypes = { "bqn" },
-          -- root_dir = require("lspconfig.util").find_git_ancestor,
-          single_file_support = false,
-        }
-      end
+      -- bqnlsp = function ()
+      --   vim.lsp.start({
+      --     cmd = {"bqnlsp"},
+      --     filetypes = { "bqn" },
+      --   });
+      --   return {
+      --     cmd = { "bqnlsp" },
+      --     cmd_env = {},
+      --     filetypes = { "bqn" },
+      --     -- root_dir = require("lspconfig.util").find_git_ancestor,
+      --     single_file_support = false,
+      --   }
+      -- end
       -- emmet_ls = function(opts)
       --   opts.filetypes = require("astronvim.utils").list_insert_unique(opts.filetypes, "vue")
       --   return opts

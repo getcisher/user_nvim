@@ -1,15 +1,15 @@
 return {
   -- You can also add new plugins here as well:
-  {
-    "romgrk/barbar.nvim",
-    dependencies = {
-      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
-      "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
-    },
-    init = function() vim.g.barbar_auto_setup = false end,
-    opts = {},
-  },
-  { "getcisher/BQN" },
+  -- {
+  --   "romgrk/barbar.nvim",
+  --   dependencies = {
+  --     "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+  --     "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+  --   },
+  --   init = function() vim.g.barbar_auto_setup = false end,
+  --   opts = {},
+  -- },
+  { "junegunn/fzf", build = "./install --bin" },
   { "jbyuki/nabla.nvim" },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   { "yaegassy/coc-pug" },
@@ -23,7 +23,6 @@ return {
     dependencies = {
       -- Required.
       "nvim-lua/plenary.nvim",
-
       -- see below for full list of optional dependencies 👇
     },
     opts = {
@@ -58,8 +57,6 @@ return {
   --   opts = function(_, opts) table.insert(opts.sources, { name = "copilot" }) end,
   -- },
   { "nvim-lua/plenary.nvim" },
-  { "https://git.sr.ht/~detegr/nvim-bqn" },
-  -- { "mlochbaum/BQN", dir = "editors/vim" },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
